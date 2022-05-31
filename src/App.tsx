@@ -1,8 +1,13 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import { ChakraProvider } from '@chakra-ui/react';
+import CommentCard from './component/CommentCard';
 
 function App() {
-  return <div> Comment Section</div>;
+  return (
+    <ChakraProvider>
+      <CommentCard />
+    </ChakraProvider>
+  );
 }
 
 export default App;
