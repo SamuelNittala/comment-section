@@ -1,6 +1,8 @@
 body {
   margin: 0;
+  color: hsl(238, 40%, 52%);
   font-family: 'Rubik', sans-serif;
+  background-color: hsl(228, 48%, 77%);
 }
 
 code {
