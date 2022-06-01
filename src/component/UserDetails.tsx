@@ -1,17 +1,11 @@
-import { Box, Flex, Spacer, Square, Text } from '@chakra-ui/react';
+import { Flex, Text, Image } from '@chakra-ui/react';
 import React from 'react';
+import EditDelete from './EditDelete';
 
 export default function UserDetails({ youFlag = true }: any) {
   return (
     <Flex>
-      <Box pl="2">
-        <img
-          src="../images/avatars/image-amyrobson.png"
-          alt="amyrobson"
-          width="30px"
-          height="30px"
-        />
-      </Box>
+      <Image src="../images/avatars/image-amyrobson.png" alt="amyrobson" boxSize="30px" />
       <Text fontSize="12px" mx="3" p="1" color="black">
         amyrobson
       </Text>
@@ -32,20 +26,8 @@ export default function UserDetails({ youFlag = true }: any) {
         1 month ago
       </Text>
       {youFlag ? (
-        <Flex justifyContent="flex-end" ml="auto">
-          <Square size="1.5" mt="2.5">
-            <img src="../images/icon-delete.svg" alt="delete" />
-          </Square>
-          <Text mt="1" fontSize="12px" h="fit-content" mx="2" color="brand.softRed">
-            Delete
-          </Text>
-          <Spacer />
-          <Square size="1.5" mt="2.5">
-            <img src="../images/icon-edit.svg" alt="delete" />
-          </Square>
-          <Text mt="1" fontSize="12px" h="fit-content" mx="2" color="brand.moderateBlue">
-            Edit
-          </Text>
+        <Flex justifyContent="flex-end" ml="auto" display={['none', 'flex']}>
+          <EditDelete />
         </Flex>
       ) : (
         <Text fontSize="12px" ml="3" mr="4" p="1" justifyContent="flex-end" color="brand.darkBlue">

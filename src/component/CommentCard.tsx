@@ -1,7 +1,8 @@
 import React from 'react';
-import { Center, Container, Flex, Text } from '@chakra-ui/react';
+import { Box, Center, Container, Flex, Text } from '@chakra-ui/react';
 import UpDown from './UpDown';
 import UserDetails from './UserDetails';
+import EditDelete from './EditDelete';
 
 export default function CommentCard() {
   return (
@@ -18,9 +19,14 @@ export default function CommentCard() {
             consectetur, dapibus nulla et, bibendum nulla. Mauris gravida vitae nibh quis euismod.
           </Text>
         </Flex>
-        <Center w="80px" display={['flex', 'none']} m="2">
-          <UpDown />
-        </Center>
+        <Flex>
+          <Box display={['flex', 'none']} mx="2">
+            <UpDown />
+          </Box>
+          <Flex justifyContent="flex-end" ml="auto" display={['flex', 'none']}>
+            <EditDelete />
+          </Flex>
+        </Flex>
       </Flex>
     </Container>
   );
