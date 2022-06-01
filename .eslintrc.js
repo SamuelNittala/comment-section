@@ -20,5 +20,6 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'no-undef': 'off',
     'linebreak-style': 'off',
+    'object-curly-newline': 'off',
   },
 };
