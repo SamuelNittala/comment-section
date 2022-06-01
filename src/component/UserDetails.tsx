@@ -4,7 +4,7 @@ import EditDelete from './EditDelete';
 
 export default function UserDetails({ youFlag = true }: any) {
   return (
-    <Flex>
+    <Flex ml="2">
       <Image src="../images/avatars/image-amyrobson.png" alt="amyrobson" boxSize="30px" />
       <Text fontSize="12px" mx="3" p="1" color="black">
         amyrobson

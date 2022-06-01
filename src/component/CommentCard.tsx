@@ -1,12 +1,12 @@
 import React from 'react';
-import { Box, Center, Container, Flex, Text } from '@chakra-ui/react';
+import { Box, Center, Flex, Text } from '@chakra-ui/react';
 import UpDown from './UpDown';
 import UserDetails from './UserDetails';
 import EditDelete from './EditDelete';
 
 export default function CommentCard() {
   return (
-    <Container maxW="1000px" mt="4" bg="brand.white" borderRadius="10px" p="2">
+    <Box mt="4" bg="brand.white" borderRadius="10px" p="2" m="2">
       <Flex color="red" flexDir={['column', 'row']}>
         <Center w="80px" display={['none', 'flex']}>
           <UpDown />
@@ -28,6 +28,6 @@ export default function CommentCard() {
           </Flex>
         </Flex>
       </Flex>
-    </Container>
+    </Box>
   );
 }
