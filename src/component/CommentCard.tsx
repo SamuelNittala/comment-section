@@ -5,14 +5,18 @@ import UserDetails from './UserDetails';
 
 export default function CommentCard() {
   return (
-    <Container maxW="1000px" mt="80px" bg="white" borderRadius="10px" py="8" px="4">
+    <Container maxW="1000px" mt="4" bg="brand.white" borderRadius="10px" p="2">
       <Flex color="red" flexDir="row">
         <Center w="80px">
           <UpDown />
         </Center>
-        <Flex bgColor="blue" flexDir="column" flexGrow="2">
+        <Flex flexDir="column" flexGrow="2" m="2" color="brand.grayishBlue">
           <UserDetails />
-          <Text> AFAFAFA FAFAFAF </Text>
+          <Text fontSize="16px" p="2">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis accumsan neque,
+            vitae accumsan odio bibendum a. Aliquam eu fringilla urna, non lacinia dolor. In eu quam
+            consectetur, dapibus nulla et, bibendum nulla. Mauris gravida vitae nibh quis euismod.
+          </Text>
         </Flex>
       </Flex>
     </Container>
