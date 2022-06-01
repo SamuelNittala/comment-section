@@ -1,5 +1,13 @@
 import { extendTheme } from '@chakra-ui/react';
 
+const breakpoints = {
+  sm: '375px',
+  md: '768px',
+  lg: '960px',
+  xl: '1200px',
+  '2xl': '1536px',
+};
+
 const customTheme = extendTheme({
   fonts: {
     // eslint-disable-next-line quotes
@@ -12,6 +20,7 @@ const customTheme = extendTheme({
       },
     },
   },
+  breakpoints,
   colors: {
     brand: {
       moderateBlue: 'hsl(238, 40%, 52%)',

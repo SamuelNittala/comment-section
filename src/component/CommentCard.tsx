@@ -6,8 +6,8 @@ import UserDetails from './UserDetails';
 export default function CommentCard() {
   return (
     <Container maxW="1000px" mt="4" bg="brand.white" borderRadius="10px" p="2">
-      <Flex color="red" flexDir="row">
-        <Center w="80px">
+      <Flex color="red" flexDir={['column', 'row']}>
+        <Center w="80px" display={['none', 'flex']}>
           <UpDown />
         </Center>
         <Flex flexDir="column" flexGrow="2" m="2" color="brand.grayishBlue">
@@ -18,6 +18,9 @@ export default function CommentCard() {
             consectetur, dapibus nulla et, bibendum nulla. Mauris gravida vitae nibh quis euismod.
           </Text>
         </Flex>
+        <Center w="80px" display={['flex', 'none']} m="2">
+          <UpDown />
+        </Center>
       </Flex>
     </Container>
   );

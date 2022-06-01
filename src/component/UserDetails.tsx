@@ -1,4 +1,4 @@
-import { Box, Flex, Square, Text } from '@chakra-ui/react';
+import { Box, Flex, Spacer, Square, Text } from '@chakra-ui/react';
 import React from 'react';
 
 export default function UserDetails({ youFlag = true }: any) {
@@ -32,12 +32,19 @@ export default function UserDetails({ youFlag = true }: any) {
         1 month ago
       </Text>
       {youFlag ? (
-        <Flex justifyContent="flex-end">
+        <Flex justifyContent="flex-end" ml="auto">
           <Square size="1.5" mt="2.5">
             <img src="../images/icon-delete.svg" alt="delete" />
           </Square>
           <Text mt="1" fontSize="12px" h="fit-content" mx="2" color="brand.softRed">
             Delete
+          </Text>
+          <Spacer />
+          <Square size="1.5" mt="2.5">
+            <img src="../images/icon-edit.svg" alt="delete" />
+          </Square>
+          <Text mt="1" fontSize="12px" h="fit-content" mx="2" color="brand.moderateBlue">
+            Edit
           </Text>
         </Flex>
       ) : (
