@@ -27,7 +27,7 @@ export default function UpDown({ upCount: count }: UpDownPropsType) {
             setIsUp(false);
           }
         }}
-        bgColor={isUp ? 'pink' : 'brand.lightGray'}
+        bgColor={isUp ? 'gray' : 'brand.lightGray'}
         borderRadius="5px"
       >
         <img src="../images/icon-plus.svg" alt="upvote" />
