@@ -1,0 +1,9 @@
+name: Run Tests on pull request
+on: [pull_request]
+jobs:
+  Run-Unit-Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Running unit tests...."
+      - run: npm run test
+      - run: echo "Tests completed"
