@@ -54,7 +54,7 @@ export default function UpDown({ upCount: count }: UpDownPropsType) {
           }
         }}
       >
-        <img src="../images/icon-minus.svg" alt="upvote" />
+        <img src="../images/icon-minus.svg" alt="downvote" />
       </Center>
     </Stack>
   );
