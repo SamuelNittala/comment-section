@@ -1,4 +1,4 @@
-import { Flex, Text, Image } from '@chakra-ui/react';
+import { Flex, Text, Image, HStack } from '@chakra-ui/react';
 import React from 'react';
 import EditDelete from './EditDelete';
 
@@ -28,9 +28,20 @@ export default function UserDetails({ youFlag = true }: any) {
       {youFlag ? (
         <EditDelete />
       ) : (
-        <Text fontSize="12px" ml="3" mr="4" p="1" justifyContent="flex-end" color="brand.darkBlue">
-          Reply
-        </Text>
+        <HStack
+          spacing="4px"
+          _hover={{ cursor: 'pointer' }}
+          ml="auto"
+          position={['absolute', 'sticky']}
+          bottom="3"
+          right="6"
+          left="auto"
+        >
+          <Image src="../images/icon-reply.svg" alt="reply" boxSize="2" />
+          <Text fontSize="12px" color="brand.moderateBlue">
+            Reply
+          </Text>
+        </HStack>
       )}
     </Flex>
   );
