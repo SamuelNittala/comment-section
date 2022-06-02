@@ -26,9 +26,7 @@ export default function UserDetails({ youFlag = true }: any) {
         1 month ago
       </Text>
       {youFlag ? (
-        <Flex justifyContent="flex-end" ml="auto" display={['none', 'flex']}>
-          <EditDelete />
-        </Flex>
+        <EditDelete />
       ) : (
         <Text fontSize="12px" ml="3" mr="4" p="1" justifyContent="flex-end" color="brand.darkBlue">
           Reply
