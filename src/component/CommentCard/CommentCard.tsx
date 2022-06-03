@@ -6,7 +6,7 @@ import type { CommentCardPropsType } from './CommentCard.types';
 
 export default function CommentCard({ comment, currentUser }: CommentCardPropsType) {
   return (
-    <Box mt="4" bg="brand.white" borderRadius="10px" p="2" m="2">
+    <Box mt="4" bg="brand.white" borderRadius="10px" p="2" m="2" position={['relative', 'sticky']}>
       <Flex color="red" flexDir={['column-reverse', 'row']}>
         <Center alignSelf={['flex-start', 'center']} ml={['4', '0']}>
           <UpDown upCount={comment.score} />
