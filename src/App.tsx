@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
-import CommentCard from './component/CommentCard';
 import customTheme from './theme';
+import CommentList from './component/CommentList';
 
 function App() {
   return (
     <ChakraProvider theme={customTheme}>
-      <CommentCard />
+      <CommentList />
     </ChakraProvider>
   );
 }
