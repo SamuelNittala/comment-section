@@ -14,6 +14,7 @@ const useCommentStore = create<CommentState>((set) => ({
   currentUser: commentsData.currentUser,
   removeComment: (id: number) => {
     set((state) => ({
+      ...state,
       comments: state.comments.filter((comment) => comment.id !== id),
     }));
   },

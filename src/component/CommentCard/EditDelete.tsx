@@ -1,7 +1,16 @@
 import { Text, HStack, Image } from '@chakra-ui/react';
 import React from 'react';
+import type { CommentState } from '../../store';
+import useCommentStore from '../../store';
 
-export default function EditDelete() {
+type PropsType = {
+  id: number;
+};
+export default function EditDelete({ id }: PropsType) {
+  const deleteComment = useCommentStore((state: CommentState) => state.removeComment);
+  const handleDelete = () => {
+    deleteComment(id);
+  };
   return (
     <HStack
       spacing="25px"
@@ -12,7 +21,7 @@ export default function EditDelete() {
       right="6"
       left="auto"
     >
-      <HStack spacing="4px" _hover={{ cursor: 'pointer' }}>
+      <HStack spacing="4px" _hover={{ cursor: 'pointer' }} onClick={handleDelete}>
         <Image src="../images/icon-delete.svg" alt="delete" boxSize="2" />
         <Text fontSize="12px" color="brand.softRed">
           Delete
