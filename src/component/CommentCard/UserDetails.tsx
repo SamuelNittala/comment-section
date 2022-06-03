@@ -1,7 +1,7 @@
 import { Flex, Text, Image, HStack } from '@chakra-ui/react';
 import React from 'react';
 import EditDelete from './EditDelete';
-import type { CommentType } from './types';
+import type { CommentType } from '../types';
 
 type PropsType = {
   user: CommentType['user'];

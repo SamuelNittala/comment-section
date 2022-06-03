@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Center, Flex, Text } from '@chakra-ui/react';
-import UpDown from '../UpDown/UpDown';
-import UserDetails from '../UserDetails';
+import UpDown from './UpDown/UpDown';
+import UserDetails from './UserDetails';
 import type { CommentCardPropsType } from './CommentCard.types';
 
 export default function CommentCard({ comment, currentUser }: CommentCardPropsType) {
