@@ -7,7 +7,7 @@ export default function EditDelete() {
       spacing="25px"
       px="2"
       ml="auto"
-      position={['relative', 'sticky']}
+      position={['absolute', 'sticky']}
       bottom="3"
       right="6"
       left="auto"
