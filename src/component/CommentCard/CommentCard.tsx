@@ -6,7 +6,15 @@ import type { CommentCardPropsType } from './CommentCard.types';
 
 export default function CommentCard({ comment, currentUser }: CommentCardPropsType) {
   return (
-    <Box mt="4" bg="brand.white" borderRadius="10px" p="2" m="2" position={['relative', 'sticky']}>
+    <Box
+      mt="4"
+      bg="brand.white"
+      borderRadius="10px"
+      p="2"
+      m="2"
+      position={['relative', 'sticky']}
+      w={['100%', '70%']}
+    >
       <Flex color="red" flexDir={['column-reverse', 'row']}>
         <Center alignSelf={['flex-start', 'center']} ml={['4', '0']}>
           <UpDown upCount={comment.score} />
@@ -15,6 +23,7 @@ export default function CommentCard({ comment, currentUser }: CommentCardPropsTy
           <UserDetails
             user={comment.user}
             createdAt={comment.createdAt}
+            commentId={comment.id}
             youFlag={currentUser.username === comment.user.username}
           />
           <Text fontSize="16px" p="2">

@@ -7,9 +7,10 @@ type PropsType = {
   user: CommentType['user'];
   createdAt: CommentType['createdAt'];
   youFlag: boolean;
+  commentId: CommentType['id'];
 };
 
-export default function UserDetails({ youFlag = false, user, createdAt }: PropsType) {
+export default function UserDetails({ youFlag = true, user, createdAt, commentId }: PropsType) {
   return (
     <Flex ml="2">
       <Image src={user.image.png} alt="amyrobson" boxSize="30px" />
@@ -33,7 +34,7 @@ export default function UserDetails({ youFlag = false, user, createdAt }: PropsT
         {createdAt}
       </Text>
       {youFlag ? (
-        <EditDelete />
+        <EditDelete id={commentId} />
       ) : (
         <HStack
           spacing="4px"
