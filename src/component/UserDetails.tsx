@@ -1,13 +1,20 @@
 import { Flex, Text, Image, HStack } from '@chakra-ui/react';
 import React from 'react';
 import EditDelete from './EditDelete';
+import type { CommentType } from './types';
 
-export default function UserDetails({ youFlag = true }: any) {
+type PropsType = {
+  user: CommentType['user'];
+  createdAt: CommentType['createdAt'];
+  youFlag: boolean;
+};
+
+export default function UserDetails({ youFlag = false, user, createdAt }: PropsType) {
   return (
     <Flex ml="2">
-      <Image src="../images/avatars/image-amyrobson.png" alt="amyrobson" boxSize="30px" />
+      <Image src={user.image.png} alt="amyrobson" boxSize="30px" />
       <Text fontSize="12px" mx="3" p="1" color="black">
-        amyrobson
+        {user.username}
       </Text>
       {youFlag && (
         <Text
@@ -23,7 +30,7 @@ export default function UserDetails({ youFlag = true }: any) {
         </Text>
       )}
       <Text fontSize="12px" ml="3" mr="4" p="1">
-        1 month ago
+        {createdAt}
       </Text>
       {youFlag ? (
         <EditDelete />
@@ -32,7 +39,7 @@ export default function UserDetails({ youFlag = true }: any) {
           spacing="4px"
           _hover={{ cursor: 'pointer' }}
           ml="auto"
-          position={['absolute', 'sticky']}
+          position={['relative', 'sticky']}
           bottom="3"
           right="6"
           left="auto"
