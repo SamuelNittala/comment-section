@@ -2,19 +2,17 @@ import React from 'react';
 import { Box, Center, Flex, Text } from '@chakra-ui/react';
 import UpDown from './UpDown/UpDown';
 import UserDetails from './UserDetails';
-import type { CommentCardPropsType } from './CommentCard.types';
-import ReplyCard from './ReplyCard';
+import type { ReplyCardPropsType } from './CommentCard.types';
 
-export default function CommentCard({ comment, currentUser }: CommentCardPropsType) {
+export default function ReplyCard({ comment, currentUser }: ReplyCardPropsType) {
   return (
-    <Box mt="4" position={['relative', 'sticky']} w={['90%', '70%']}>
+    <Box mt="4" position={['relative', 'sticky']} w={['90%', '85%']} ml="auto">
       <Flex
         color="red"
         flexDir={['column-reverse', 'row']}
         bg="brand.white"
-        my="1"
-        p="2"
         borderRadius="10px"
+        p="2"
       >
         <Center alignSelf={['flex-start', 'center']} ml={['4', '0']}>
           <UpDown upCount={comment.score} />
@@ -31,9 +29,6 @@ export default function CommentCard({ comment, currentUser }: CommentCardPropsTy
           </Text>
         </Flex>
       </Flex>
-      {comment.replies?.map((reply) => (
-        <ReplyCard key={reply.id} comment={reply} currentUser={currentUser} />
-      ))}
     </Box>
   );
 }
