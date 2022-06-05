@@ -7,4 +7,7 @@ export type CommentCardPropsType = {
   replies?: CommentType['replies'];
 };
 
-export type ReplyCardPropsType = Exclude<CommentCardPropsType, 'replies'>;
+export type ReplyCardPropsType = Omit<CommentCardPropsType, 'replies' | 'comment'> & {
+  reply: CommentType;
+  commentId: number;
+};

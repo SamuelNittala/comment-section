@@ -1,3 +1,5 @@
+/* eslint-disable react/require-default-props */
+/* eslint-disable react/no-unused-prop-types */
 import { Text, HStack, Image } from '@chakra-ui/react';
 import React from 'react';
 import type { CommentState } from '../../store';
@@ -5,11 +7,19 @@ import useCommentStore from '../../store';
 
 type PropsType = {
   id: number;
+  replyFlag?: boolean;
+  parentCommentId?: number;
 };
-export default function EditDelete({ id }: PropsType) {
+
+export default function EditDelete({ id, replyFlag = false, parentCommentId = -1 }: PropsType) {
   const deleteComment = useCommentStore((state: CommentState) => state.removeComment);
+  const deleteReply = useCommentStore((state: CommentState) => state.removeReply);
   const handleDelete = () => {
-    deleteComment(id);
+    if (replyFlag) {
+      deleteReply(parentCommentId, id);
+    } else {
+      deleteComment(id);
+    }
   };
   return (
     <HStack

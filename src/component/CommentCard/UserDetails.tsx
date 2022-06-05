@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import { Flex, Text, Image, HStack } from '@chakra-ui/react';
 import React from 'react';
 import EditDelete from './EditDelete';
@@ -8,13 +9,22 @@ type PropsType = {
   createdAt: CommentType['createdAt'];
   youFlag: boolean;
   commentId: CommentType['id'];
+  replyFlag: boolean;
+  parentCommentId?: number;
 };
 
-export default function UserDetails({ youFlag = true, user, createdAt, commentId }: PropsType) {
+export default function UserDetails({
+  user,
+  createdAt,
+  commentId,
+  parentCommentId = -1,
+  youFlag = true,
+  replyFlag = false,
+}: PropsType) {
   return (
     <Flex ml="2">
       <Image src={user.image.png} alt="amyrobson" boxSize="30px" />
-      <Text fontSize="12px" mx="3" p="1" color="black">
+      <Text fontSize="12px" mx="1" p="1" color="black">
         {user.username}
       </Text>
       {youFlag && (
@@ -22,7 +32,7 @@ export default function UserDetails({ youFlag = true, user, createdAt, commentId
           mt="1"
           fontSize="12px"
           h="fit-content"
-          mx="3"
+          mx="2"
           px="2px"
           color="brand.white"
           bgColor="brand.moderateBlue"
@@ -30,11 +40,11 @@ export default function UserDetails({ youFlag = true, user, createdAt, commentId
           you
         </Text>
       )}
-      <Text fontSize="12px" ml="3" mr="4" p="1">
+      <Text fontSize="12px" ml="1" mr="4" p="1">
         {createdAt}
       </Text>
       {youFlag ? (
-        <EditDelete id={commentId} />
+        <EditDelete id={commentId} replyFlag={replyFlag} parentCommentId={parentCommentId} />
       ) : (
         <HStack
           spacing="4px"

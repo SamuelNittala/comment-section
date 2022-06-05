@@ -24,6 +24,7 @@ export default function CommentCard({ comment, currentUser }: CommentCardPropsTy
             user={comment.user}
             createdAt={comment.createdAt}
             commentId={comment.id}
+            replyFlag={false}
             youFlag={currentUser.username === comment.user.username}
           />
           <Text fontSize="16px" p="2">
@@ -32,7 +33,7 @@ export default function CommentCard({ comment, currentUser }: CommentCardPropsTy
         </Flex>
       </Flex>
       {comment.replies?.map((reply) => (
-        <ReplyCard key={reply.id} comment={reply} currentUser={currentUser} />
+        <ReplyCard key={reply.id} reply={reply} currentUser={currentUser} commentId={comment.id} />
       ))}
     </Box>
   );
