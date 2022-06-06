@@ -10,6 +10,12 @@ export type CommentState = {
   currentUser: CurrentUserType;
   removeComment: (id: number) => void;
   removeReply: (commentId: number, replyId: number) => void;
+  addReply: (
+    commentId: number,
+    reply: Omit<CommentType, 'replies'> & {
+      replyingTo: string;
+    },
+  ) => void;
 };
 
 const useCommentStore = create<CommentState>()(
@@ -23,11 +29,23 @@ const useCommentStore = create<CommentState>()(
       }));
     },
     removeReply: (commentId: number, replyId: number) => {
+      console.log(commentId, replyId);
       set((state: CommentState) => {
         const commentIndex = state.comments.findIndex((comment) => comment.id === commentId);
         state.comments[commentIndex].replies = state.comments[commentIndex].replies?.filter(
           (reply) => reply.id !== replyId,
         );
+      });
+    },
+    addReply: (
+      commentId: number,
+      reply: Omit<CommentType, 'replies'> & {
+        replyingTo: string;
+      },
+    ) => {
+      set((state: CommentState) => {
+        const commentIndex = state.comments.findIndex((comment) => comment.id === commentId);
+        state.comments[commentIndex].replies?.push(reply);
       });
     },
   })),

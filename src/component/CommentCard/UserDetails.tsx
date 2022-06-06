@@ -11,6 +11,7 @@ type PropsType = {
   commentId: CommentType['id'];
   replyFlag: boolean;
   parentCommentId?: number;
+  setReplyClicked: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export default function UserDetails({
@@ -19,6 +20,7 @@ export default function UserDetails({
   commentId,
   parentCommentId = -1,
   youFlag = true,
+  setReplyClicked,
   replyFlag = false,
 }: PropsType) {
   return (
@@ -54,6 +56,7 @@ export default function UserDetails({
           bottom="3"
           right="6"
           left="auto"
+          onClick={() => setReplyClicked(true)}
         >
           <Image src="../images/icon-reply.svg" alt="reply" boxSize="2" />
           <Text fontSize="12px" color="brand.moderateBlue">

@@ -5,6 +5,7 @@ import UserDetails from './UserDetails';
 import type { ReplyCardPropsType } from './CommentCard.types';
 
 export default function ReplyCard({ reply, currentUser, commentId }: ReplyCardPropsType) {
+  const [replyClicked, setReplyClicked] = React.useState(false);
   return (
     <Box mt="4" position={['relative', 'sticky']} w={['90%', '85%']} ml="auto">
       <Flex
@@ -25,6 +26,7 @@ export default function ReplyCard({ reply, currentUser, commentId }: ReplyCardPr
             replyFlag
             parentCommentId={commentId}
             youFlag={currentUser.username === reply.user.username}
+            setReplyClicked={setReplyClicked}
           />
           <Text fontSize="16px" p="2">
             {reply.content}

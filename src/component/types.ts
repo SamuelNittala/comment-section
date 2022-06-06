@@ -10,7 +10,11 @@ export type CommentType = {
     };
     username: string;
   };
-  replies?: CommentType[];
+  replies?: Array<
+    Omit<CommentType, 'replies'> & {
+      replyingTo: string;
+    }
+  >;
 };
 
 export type CurrentUserType = Pick<CommentType, 'user'>['user'];
