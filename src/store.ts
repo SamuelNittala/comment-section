@@ -29,7 +29,6 @@ const useCommentStore = create<CommentState>()(
       }));
     },
     removeReply: (commentId: number, replyId: number) => {
-      console.log(commentId, replyId);
       set((state: CommentState) => {
         const commentIndex = state.comments.findIndex((comment) => comment.id === commentId);
         state.comments[commentIndex].replies = state.comments[commentIndex].replies?.filter(
