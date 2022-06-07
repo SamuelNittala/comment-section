@@ -5,9 +5,12 @@ import UserDetails from './UserDetails';
 import type { ReplyCardPropsType } from './CommentCard.types';
 import useCommentStore from '../../store';
 
-export default function ReplyCard({ reply, currentUser, commentId }: ReplyCardPropsType) {
-  const [replyClicked, setReplyClicked] = React.useState(false);
-
+export default function ReplyCard({
+  reply,
+  currentUser,
+  commentId,
+  setReplyClicked,
+}: ReplyCardPropsType) {
   const [editClicked, setEditClicked] = React.useState(false);
   const [editContent, setEditContent] = React.useState(reply.content);
 

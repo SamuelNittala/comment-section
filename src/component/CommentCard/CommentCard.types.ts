@@ -1,3 +1,4 @@
+import type React from 'react';
 import type { CommentType, CurrentUserType } from '../types';
 
 export type CommentCardPropsType = {
@@ -10,4 +11,5 @@ export type CommentCardPropsType = {
 export type ReplyCardPropsType = Omit<CommentCardPropsType, 'replies' | 'comment'> & {
   reply: Omit<CommentType, 'replies'>;
   commentId: number;
+  setReplyClicked: React.Dispatch<React.SetStateAction<boolean>>;
 };

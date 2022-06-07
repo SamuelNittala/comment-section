@@ -74,6 +74,7 @@ export default function CommentCard({ comment, currentUser }: CommentCardPropsTy
             reply={reply}
             currentUser={currentUser}
             commentId={comment.id}
+            setReplyClicked={setReplyClicked}
           />
         ))}
       </Box>
