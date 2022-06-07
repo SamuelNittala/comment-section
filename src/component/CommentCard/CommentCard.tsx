@@ -13,6 +13,10 @@ const DEFAULT_TEXT = 'Add a comment...';
 export default function CommentCard({ comment, currentUser }: CommentCardPropsType) {
   const [replyClicked, setReplyClicked] = React.useState(false);
   const [replyContent, setReplyContent] = React.useState(DEFAULT_TEXT);
+
+  const [editClicked, setEditClicked] = React.useState(false);
+  const [editContent, setEditContent] = React.useState(comment.content);
+
   const addReply = useCommentStore((state: CommentState) => state.addReply);
   const handleFocus = () => {
     if (replyContent === DEFAULT_TEXT) setReplyContent('');
@@ -53,10 +57,15 @@ export default function CommentCard({ comment, currentUser }: CommentCardPropsTy
               replyFlag={false}
               youFlag={currentUser.username === comment.user.username}
               setReplyClicked={setReplyClicked}
+              setEditClicked={setEditClicked}
             />
-            <Text fontSize="16px" p="2">
-              {comment.content}
-            </Text>
+            {editClicked ? (
+              <Textarea value={editContent} onChange={(e) => setEditContent(e.target.value)} />
+            ) : (
+              <Text fontSize="16px" p="2">
+                {comment.content}
+              </Text>
+            )}
           </Flex>
         </Flex>
         {comment.replies?.map((reply) => (

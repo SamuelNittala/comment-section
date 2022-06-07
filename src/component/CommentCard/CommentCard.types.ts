@@ -4,10 +4,10 @@ export type CommentCardPropsType = {
   comment: CommentType;
   currentUser: CurrentUserType;
   key: number;
-  replies?: CommentType['replies'];
+  replies: CommentType['replies'];
 };
 
 export type ReplyCardPropsType = Omit<CommentCardPropsType, 'replies' | 'comment'> & {
-  reply: CommentType;
+  reply: Omit<CommentType, 'replies'>;
   commentId: number;
 };

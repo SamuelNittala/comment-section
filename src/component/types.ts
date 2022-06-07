@@ -10,7 +10,7 @@ export type CommentType = {
     };
     username: string;
   };
-  replies?: Array<
+  replies: Array<
     Omit<CommentType, 'replies'> & {
       replyingTo: string;
     }

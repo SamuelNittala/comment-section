@@ -12,6 +12,7 @@ type PropsType = {
   replyFlag: boolean;
   parentCommentId?: number;
   setReplyClicked: React.Dispatch<React.SetStateAction<boolean>>;
+  setEditClicked: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export default function UserDetails({
@@ -21,6 +22,7 @@ export default function UserDetails({
   parentCommentId = -1,
   youFlag = true,
   setReplyClicked,
+  setEditClicked,
   replyFlag = false,
 }: PropsType) {
   return (
@@ -46,7 +48,12 @@ export default function UserDetails({
         {createdAt}
       </Text>
       {youFlag ? (
-        <EditDelete id={commentId} replyFlag={replyFlag} parentCommentId={parentCommentId} />
+        <EditDelete
+          id={commentId}
+          replyFlag={replyFlag}
+          parentCommentId={parentCommentId}
+          setEditClicked={setEditClicked}
+        />
       ) : (
         <HStack
           spacing="4px"

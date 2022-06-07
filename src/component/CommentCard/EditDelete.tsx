@@ -9,9 +9,15 @@ type PropsType = {
   id: number;
   replyFlag?: boolean;
   parentCommentId?: number;
+  setEditClicked: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function EditDelete({ id, replyFlag = false, parentCommentId = -1 }: PropsType) {
+export default function EditDelete({
+  id,
+  replyFlag = false,
+  parentCommentId = -1,
+  setEditClicked,
+}: PropsType) {
   const deleteComment = useCommentStore((state: CommentState) => state.removeComment);
   const deleteReply = useCommentStore((state: CommentState) => state.removeReply);
   const handleDelete = () => {
@@ -37,7 +43,7 @@ export default function EditDelete({ id, replyFlag = false, parentCommentId = -1
           Delete
         </Text>
       </HStack>
-      <HStack spacing="4px" _hover={{ cursor: 'pointer' }}>
+      <HStack spacing="4px" _hover={{ cursor: 'pointer' }} onClick={() => setEditClicked(true)}>
         <Image src="../images/icon-edit.svg" alt="delete" boxSize="2" />
         <Text fontSize="12px" color="brand.grayishBlue">
           Edit

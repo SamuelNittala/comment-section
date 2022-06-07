@@ -16,6 +16,7 @@ export type CommentState = {
       replyingTo: string;
     },
   ) => void;
+  updateReply: (commentId: number, replyId: number, content: string) => void;
 };
 
 const useCommentStore = create<CommentState>()(
@@ -45,6 +46,17 @@ const useCommentStore = create<CommentState>()(
       set((state: CommentState) => {
         const commentIndex = state.comments.findIndex((comment) => comment.id === commentId);
         state.comments[commentIndex].replies?.push(reply);
+      });
+    },
+    updateReply: (commentId: number, replyId: number, content: string) => {
+      set((state: CommentState) => {
+        const commentIndex = state.comments.findIndex((comment) => comment.id === commentId);
+        const replyIndex = state.comments[commentIndex].replies?.findIndex(
+          (reply) => reply.id === replyId,
+        );
+        if (state.comments[commentIndex].replies && replyIndex !== undefined) {
+          state.comments[commentIndex].replies[replyIndex].content = content;
+        }
       });
     },
   })),
