@@ -34,6 +34,7 @@ export default function CommentCard({ comment, currentUser }: CommentCardPropsTy
     };
     addReply(comment.id, constructReply);
     setReplyClicked(false);
+    setReplyContent(DEFAULT_TEXT);
   };
   return (
     <>

@@ -29,7 +29,7 @@ export default function EditDelete({
   };
   return (
     <HStack
-      spacing="25px"
+      spacing="30px"
       px="2"
       ml="auto"
       position={['absolute', 'sticky']}
